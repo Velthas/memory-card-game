@@ -1,9 +1,12 @@
 import React from "react";
 
 const Card = (props) => {
-  const {name, sprite} = props.data;
+  const { playTurn, data } = props;
+  const { name, sprite } = data;
   return (
-    <div>
+    <div 
+      onClick={() => playTurn(data)}
+    >
       <img src={sprite}></img>
       <h4>{name}</h4>
     </div>

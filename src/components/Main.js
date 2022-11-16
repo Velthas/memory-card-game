@@ -5,10 +5,13 @@ import CardContainer from "./CardContainer/CardContainer";
 const Main = () => {
   const POKEDEX_START = 252;
   const POKEMON_AMOUNT = 12;
+
   const pokemon = [];
 
+  const [clickedCards, setClickedCards] = useState([])
   const [cards, setCards] = useState([]);
   const [score, setScore] = useState(0);
+  const [maxScore, setMaxScore] = useState(0);
 
   const callAPI = async function () {
     const APIurl = "https://pokeapi.co/api/v2/pokemon/";
@@ -34,11 +37,30 @@ const Main = () => {
     setCards(pokemon)
   }
 
-  useEffect(() => init(), [])
+  const shuffleArray = (array) => {
+    return array
+      .map(value => ({value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({value}) => value);
+  }
+
+  const playTurn = (card) => {
+    if(clickedCards.length === clickedCards.filter(id => id !== card.id).length) {
+      setClickedCards([...clickedCards].concat([card.id]));
+      if(score === maxScore) setMaxScore(score + 1);
+      setScore(score + 1);
+      setCards(shuffleArray(cards));
+    } else {
+      setClickedCards([])
+      setScore(0);
+      setCards(shuffleArray(cards));
+    }
+  }
+
+  useEffect(() => init(), []);
 
   return <div>Hello!
-    <CardContainer cards={cards} />
-    {console.log(cards)}
+    <CardContainer cards={cards} playTurn={playTurn} />
   </div>
 }
 

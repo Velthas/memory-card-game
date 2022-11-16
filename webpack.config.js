@@ -1,5 +1,5 @@
-const path = require("path");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/App.js',
@@ -8,7 +8,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"],
+        use: ['babel-loader'],
       },
       {
         test: /\.(jpg|svg|png|jpeg|gif)$/i,
@@ -19,27 +19,27 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-      test: /\.css$/i,
-      use: ['style-loader',  'css-loader'],
-      }
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"],
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, 'build'),
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html')
+      template: path.join(__dirname, 'public', 'index.html'),
     }),
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'build')
+      directory: path.join(__dirname, 'build'),
     },
     port: 3000,
-  }
-}
+  },
+};

@@ -5,7 +5,7 @@ import Scoreboard from "./scoreboard/Scoreboard";
 
 const Main = () => {
   const POKEDEX_START = 252;
-  const POKEMON_AMOUNT = 12;
+  const POKEMON_AMOUNT = 15;
 
   const pokemon = [];
 

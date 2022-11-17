@@ -6,8 +6,14 @@ const Card = (props) => {
   return (
     <div 
       onClick={() => playTurn(data)}
+      className="card"
     >
-      <img src={sprite}></img>
+      <img 
+        src={sprite}
+        alt={name}
+      >
+      </img>
+      
       <h4>{name}</h4>
     </div>
   )

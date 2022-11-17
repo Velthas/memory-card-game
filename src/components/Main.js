@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import CardContainer from "./CardContainer/CardContainer";
+import CardContainer from "./card-container/CardContainer";
+import Scoreboard from "./scoreboard/Scoreboard";
 
 const Main = () => {
   const POKEDEX_START = 252;
@@ -59,9 +60,12 @@ const Main = () => {
 
   useEffect(() => init(), []);
 
-  return <div>Hello!
+  return (
+  <div id="main">
+    <Scoreboard score={score} maxScore={maxScore} />
     <CardContainer cards={cards} playTurn={playTurn} />
   </div>
+  )
 }
 
 export default Main;

@@ -4,7 +4,14 @@ import Card from "./Card"
 const CardContainer = ({cards, playTurn}) => {
   return (
     <div>
-      { cards.map((card) => <Card key={card.id} data={card} playTurn={playTurn} />) }
+      { cards.map((card) =>
+          <Card  
+            key={card.id} 
+            data={card} 
+            playTurn={playTurn}
+          /> 
+        ) 
+      }
     </div>
   )
 }

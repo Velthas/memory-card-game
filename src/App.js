@@ -3,7 +3,9 @@ import { createRoot } from "react-dom/client";
 
 import Main from "./components/Main";
 import Header from "./components/Header";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
+
+import './styles/style.css';
 
 const container = document.getElementById("root");
 const root = createRoot(container);

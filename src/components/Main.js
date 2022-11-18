@@ -9,10 +9,12 @@ const Main = () => {
 
   const pokemon = [];
 
-  const [clickedCards, setClickedCards] = useState([])
+  const [clickedCards, setClickedCards] = useState([]);
   const [cards, setCards] = useState([]);
   const [score, setScore] = useState(0);
   const [maxScore, setMaxScore] = useState(0);
+
+  useEffect(() => init(), []);
 
   const callAPI = async function () {
     const APIurl = "https://pokeapi.co/api/v2/pokemon/";
@@ -20,7 +22,7 @@ const Main = () => {
     for(let i = POKEDEX_START; i <= bounds; i++ ) {
       const response = await fetch(APIurl + i, {mode: "cors"});
       const rawData = await response.json();
-      const cardData = convertToCard(rawData)
+      const cardData = convertToCard(rawData);
       pokemon.push(cardData);
     }
   }
@@ -35,7 +37,7 @@ const Main = () => {
 
   const init = async function () {
     await callAPI();
-    setCards(pokemon)
+    setCards(pokemon);
   }
 
   const shuffleArray = (array) => {
@@ -52,13 +54,11 @@ const Main = () => {
       setScore(score + 1);
       setCards(shuffleArray(cards));
     } else {
-      setClickedCards([])
+      setClickedCards([]);
       setScore(0);
       setCards(shuffleArray(cards));
     }
   }
-
-  useEffect(() => init(), []);
 
   return (
   <div id="main">

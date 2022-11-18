@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 function Footer() {
   const profileUrl = 'https://github.com/Velthas';
-  const codeUrl = 'https://github.com/Velthas/buildrriculum';
+  const codeUrl = 'https://github.com/Velthas/memory-card-game';
   const author = 'Velthas';
 
   return (
-    <FooterWrapper>
+    <FooterWrapper id="footer">
       <p>
         Coded by
         <Url href={profileUrl}>
@@ -40,6 +40,10 @@ const FooterWrapper = styled.div`
   color: white;
 
   font-family: sans-serif;
+
+  @media (max-width: 360px) {
+    font-size: 0.9rem;
+  }
 `
 
 const Url = styled.a`

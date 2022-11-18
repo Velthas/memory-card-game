@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import pokeLogo from '../images/logo.png'
+import pokeLogo from '../images/logo.png';
 
 const Header = () => {
   return (
-    <HeaderContainer>
+    <HeaderContainer id="header">
       <Logo src={pokeLogo}></Logo>
       <BallButtonContainer>
         <BallButtonOuter>

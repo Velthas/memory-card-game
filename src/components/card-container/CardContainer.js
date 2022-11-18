@@ -26,6 +26,8 @@ const CardContainerDiv = styled.div`
   justify-content: center;
   align-items: center;
 
+  margin-bottom: 40px;
+
   @media (max-width: 700px) {
     grid-template-columns: repeat(2, 150px);
   }

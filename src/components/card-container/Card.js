@@ -21,6 +21,12 @@ const PokeCard = styled.div`
   flex-direction: column;
   gap: 3px;
 
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+
   border: 6px solid #396bba;
   border-radius: 10px;
 
